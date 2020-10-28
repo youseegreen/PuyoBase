@@ -7,7 +7,7 @@
 /*読み込んだ動画のスタート位置とマスク画像を入手する*/
 bool MaskImageInfo::GetMaskInfo(VideoCapture *video, Mat *nowFrame) {
 	int lastFrameNum = (int)video->get(CV_CAP_PROP_FRAME_COUNT);
-	printf("%d\n", lastFrameNum);
+//	printf("%d\n", lastFrameNum);
 //	FowardVideoFrame(video, nowFrame, 9500);
 
 
@@ -24,7 +24,7 @@ bool MaskImageInfo::GetMaskInfo(VideoCapture *video, Mat *nowFrame) {
 	FowardVideoFrame(video, nowFrame, 10);	//変更の余地あり
 	//その画面からマスク画像を入手する
 	CaluculateMaskImage(nowFrame);
-	ForDebug("fordebug");	
+	//ForDebug("fordebug");	
 	return true;
 }
 
@@ -40,8 +40,8 @@ bool MaskImageInfo::GetMaskInfo(VideoCapture *video, Mat *nowFrame) {
 bool MaskImageInfo::IsStartFrame(Mat *nowFrame) {
 	static int blackFrag = 0;
 	if (IsBlackImage(nowFrame)) {
-		imshow("tmp", *nowFrame);
-		waitKey(1);
+//		imshow("tmp", *nowFrame);
+//		waitKey(1);
 		blackFrag = 100;	//100を直す
 		return false;	//黒塗り画像ならスキップ	黒なって後100フレーム見るとか
 	}
@@ -85,9 +85,9 @@ bool MaskImageInfo::IsStartFrame(Mat *nowFrame) {
 			}
 		}
 		
-		imshow("edge", canny_image);
-		imshow("origin", playerImage);
-		waitKey(10);
+//		imshow("edge", canny_image);
+//		imshow("origin", playerImage);
+//		waitKey(10);
 
 
 		//コーナー検出

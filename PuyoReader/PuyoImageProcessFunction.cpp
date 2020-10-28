@@ -37,17 +37,20 @@ void SaveOnePuyoImage(const Mat *img, const Color col) {
 
 
 //1つのmp4ファイルから順にぷよ譜を得る
-void GetPUYOHUFromOneVideo(const char *fName) {
+void GetPUYOHUFromOneVideo(const string videoFileName, const string saveDirectoryName){
 	//保存フォルダ作成
-	string videoFileName(fName);
-	//フルパス\hoge.mp4→hogeだけにする
-	string fileNameOnly = videoFileName.substr(videoFileName.find_last_of("\\") + 1,
-		videoFileName.find_last_of(".") - videoFileName.find_last_of("\\") - 1);
-	Directory::MakeDirectory(fileNameOnly.c_str());
+	Directory::MakeDirectory(saveDirectoryName.c_str());
+
+	//string videoFileName(fName);
+	////フルパス\hoge.mp4→hogeだけにする
+	//string fileNameOnly = videoFileName.substr(videoFileName.find_last_of("\\") + 1,
+	//	videoFileName.find_last_of(".") - videoFileName.find_last_of("\\") - 1);
+	//Directory::MakeDirectory(fileNameOnly.c_str());
+
 
 
 	//動画の読み込み及び基本情報の入手
-	VideoCapture video(fName);
+	VideoCapture video(videoFileName.c_str());
 	GetVideoInfo(&video);	//基本情報の表示
 
 	//スタート位置を探す&その動画のマスク画像を入手
@@ -63,7 +66,7 @@ void GetPUYOHUFromOneVideo(const char *fName) {
 		printf("%d試合目\n", gameNum);
 
 		//ここで試合数のフォルダもつくるようにする
-		Directory::MakeDirectory((fileNameOnly + string("\\") + to_string(gameNum)).c_str());
+		Directory::MakeDirectory((saveDirectoryName + to_string(gameNum)).c_str());
 
 
 		int moveTimes = 0;	//n-1手目をさす
@@ -103,7 +106,7 @@ void GetPUYOHUFromOneVideo(const char *fName) {
 
 				//保存する
 				if (moveTimes > 0)	data[(moveTimes + 1) % 2].WriteFile(
-					(fileNameOnly + string("\\") + to_string(gameNum) + string("\\") + to_string(moveTimes) + string(".csv")).c_str()
+					(saveDirectoryName + to_string(gameNum) + string("\\") + to_string(moveTimes) + string(".csv")).c_str()
 					//(fileNameOnly + string("\\") + to_string(gameNum) + string("\\") + to_string(1p or 2p) + string("\\")
 					// + to_string(moveTimes) + string(".csv")).c_str()
 				);

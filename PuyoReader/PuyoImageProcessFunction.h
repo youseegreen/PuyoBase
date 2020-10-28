@@ -4,7 +4,7 @@
 #include "MaskImageInfo.h"
 #include "DataManager.h"
 
-void GetPUYOHUFromOneVideo(const char *fName);
+void GetPUYOHUFromOneVideo(const string videoFileName, const string saveDirectoryName);
 
 
 //Ç‡ÇµÇ©ÇµÇΩÇÁÅAcppÇæÇØÇ…Ç∑ÇÈÇ©Ç‡
