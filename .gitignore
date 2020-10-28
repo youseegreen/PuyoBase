@@ -9,6 +9,14 @@
 *.userosscache
 *.sln.docstates
 *.mp4
+*.csv
+
+!PuyoReader/judgeColor/0.csv
+!PuyoReader/judgeColor/1.csv
+!PuyoReader/judgeColor/2.csv
+!PuyoReader/judgeColor/first.csv
+
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

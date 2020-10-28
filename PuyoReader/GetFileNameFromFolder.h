@@ -1,6 +1,5 @@
 #pragma once
-
-//h ttps://tanjoin.hatenablog.com/entry/20110810/1312966845
+//https://tanjoin.hatenablog.com/entry/20110810/1312966845
 
 #include <iostream>
 #include <sstream>

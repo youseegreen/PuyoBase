@@ -5,4 +5,3 @@
 #include "StandardImageProcessFunction.h"
 #include "PuyoImageProcessFunction.h"
 #include "MaskImageInfo.h"
-#include "OneVideoPuyoPlayer.h"

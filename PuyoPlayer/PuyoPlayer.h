@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <time.h>
-#include "OpenCV.h"
-#include "GetFileNameFromFolder.h"
+#include "../PuyoReader/OpenCV.h"
+#include "../PuyoReader/GetFileNameFromFolder.h"
 
 using namespace cv;
 using namespace std;
